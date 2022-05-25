@@ -13,3 +13,6 @@ A modular Java application that can create flashcards and vocabulary terms that 
 - Add and remove flashcards
 - Add and remove vocabulary terms
 - Search flashcards and vocabulary terms
+
+### Resources
+[Object-Oriented Analysis, Design and Implementation: An Integrated Approach (Undergraduate Topics in Computer Science)](https://www.amazon.com/Object-Oriented-Analysis-Design-Implementation-Undergraduate-ebook/dp/B017JYTDNY/ref=sr_1_1?qid=1653514735&refinements=p_27%3ABrahma+Dathan&s=books&sr=1-1)
