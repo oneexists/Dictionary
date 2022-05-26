@@ -1,4 +1,4 @@
-# ShelfTracker Project
+# Dictionary Project
 
 Create flashcards and vocabulary terms to study and search. Remove them as they have been learned.
 
