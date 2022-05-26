@@ -23,7 +23,9 @@ public class UserInterface {
 	private static final int SEARCH_VOCABULARY = 4;
 	private static final int REMOVE_FLASHCARD = 5;
 	private static final int REMOVE_VOCABULARY = 6;
-	private static final int SAVE = 7;
+	private static final int RANDOM_FLASHCARD = 7;
+	private static final int RANDOM_VOCABULARY = 8;
+	private static final int SAVE = 9;
 	
 	private UserInterface() {
 		System.out.println("Use saved data?");
@@ -67,13 +69,15 @@ public class UserInterface {
 	private void printMenu() {
 		System.out.println("Menu:");
 		System.out.println(EXIT + " to exit");
-		System.out.println(SAVE + " to save to disk");
 		System.out.println(ADD_FLASHCARD + " to add a flashcard");
 		System.out.println(ADD_VOCABULARY + " to add a vocabulary term");
 		System.out.println(SEARCH_FLASHCARD + " to search flashcards");
 		System.out.println(SEARCH_VOCABULARY + " to search vocabulary terms");
 		System.out.println(REMOVE_FLASHCARD + " to remove a flashcard");
 		System.out.println(REMOVE_VOCABULARY + " to remove a vocabulary term");
+		System.out.println(RANDOM_FLASHCARD + " to review a random flashcard");
+		System.out.println(RANDOM_VOCABULARY + " to review a random vocabulary term");
+		System.out.println(SAVE + " to save to disk");
 		System.out.println();
 		System.out.println("Select option: ");
 	}
@@ -103,8 +107,26 @@ public class UserInterface {
 			case REMOVE_VOCABULARY:
 				removeVocabulary();
 				break;
+			case RANDOM_FLASHCARD:
+				randomFlashcard();
+				break;
+			case RANDOM_VOCABULARY:
+				randomVocabulary();
+				break;
+			default:
+				System.out.println("Invalid selection.");
 			}
 		}
+	}
+
+	private void randomVocabulary() {
+		System.out.println("random vocabulary definition: ");
+		System.out.println("guess vocabulary term: ");
+	}
+
+	private void randomFlashcard() {
+		System.out.println("random flashcard front: ");
+		System.out.println("guess flashcard back: ");
 	}
 
 	private void save() {
