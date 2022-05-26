@@ -6,7 +6,8 @@ A modular Java application that can create flashcards and vocabulary terms that 
 
 - Implement CLI and Swing user interfaces
 
-  ![Dictionary Menu](https://github.com/oneexists/ShelfTracker/blob/main/img/dictionary_menu.png)
+  ![CLI Dictionary Menu](https://github.com/oneexists/ShelfTracker/blob/main/img/cli_menu.png)
+  ![Swing Dictionary Menu](https://github.com/oneexists/ShelfTracker/blob/main/img/swing_menu.png)
 
 ### Target Process
 
