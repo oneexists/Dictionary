@@ -1,9 +1,11 @@
 ShelfTracker/.classpath
 ShelfTracker/.project
 ShelfTracker/.settings/
+ShelfTracker/modules/
 ShelfTrackerUI/.classpath
 ShelfTrackerUI/.project
 ShelfTrackerUI/.settings/
+ShelfTrackerUI/modules/
 ShelfTrackerSwingGUI/.classpath
 ShelfTrackerSwingGUI/.project
 ShelfTrackerSwingGUI/.settings/
