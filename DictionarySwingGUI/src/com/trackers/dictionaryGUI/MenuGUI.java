@@ -25,7 +25,7 @@ public class MenuGUI implements ActionListener {
 	private JButton[] menuButtons = new JButton[10];
 	
 	public MenuGUI() {
-		frame = new JFrame("Shelf Tracker Dictionary");
+		frame = new JFrame("Tracker Dictionary");
 		frame.setSize(600, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -69,7 +69,7 @@ public class MenuGUI implements ActionListener {
 	
 	private void buildHeaderPanel() {
 		panel = new JPanel();
-		titleLabel = new JLabel("Dictionary Menu");
+		titleLabel = new JLabel("Menu");
 		messageLabel = new JLabel();
 		panel.setLayout(new FlowLayout());
 		panel.add(titleLabel);

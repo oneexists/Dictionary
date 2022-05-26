@@ -1,6 +1,6 @@
-# ShelfTracker Modular Java CLI application
+# Dictionary Project
 
-A modular Java application that can create flashcards and vocabulary terms that can be searched to aid in studying new terms.
+Create flashcards and vocabulary terms to study and search. Remove them as they have been learned.
 
 ### Process Analysis
 
