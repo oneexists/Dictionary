@@ -25,18 +25,22 @@ public class Dictionary implements Serializable {
 	private static final long serialVersionUID = 202205001L;
 	private FlashcardList flashcardList = FlashcardList.getInstance();
 	private VocabularyList vocabularyList = VocabularyList.getInstance();
-	private static Dictionary dictionary;
 	private static Long idCounter = 0L;
+	
+	private static class DictionarySingleton {
+		private static Dictionary INSTANCE = new Dictionary();
+	}
 	
 	private Dictionary() {
 		// singleton constructor
 	}
 	
 	public static Dictionary getInstance() {
-		if (dictionary == null) {
-			dictionary = new Dictionary();
-		}
-		return dictionary;
+		return DictionarySingleton.INSTANCE;
+	}
+	
+	protected Object readResolve() {
+		return getInstance();
 	}
 	
 	private static Long getId() {
@@ -133,14 +137,13 @@ public class Dictionary implements Serializable {
 		return result;
 	}
 	
-	// TODO refactoring load singleton dictionary
 	public static Dictionary loadDictionary() {
 		try {
 			FileInputStream file = new FileInputStream("DictionaryData");
 			try (ObjectInputStream input = new ObjectInputStream(file)) {
-				dictionary = (Dictionary) input.readObject();
+				DictionarySingleton.INSTANCE = (Dictionary) input.readObject();
 			}
-			return dictionary;
+			return getInstance();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 			return null;
@@ -150,12 +153,11 @@ public class Dictionary implements Serializable {
 		}
 	}
 	
-	// TODO refactoring save singleton dictionary
 	public static boolean save() {
 		try {
 			FileOutputStream file = new FileOutputStream("DictionaryData");
 			ObjectOutputStream output = new ObjectOutputStream(file);
-			output.writeObject(dictionary);
+			output.writeObject(getInstance());
 			file.close();
 			return true;
 		} catch (IOException ioe) {
