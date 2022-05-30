@@ -23,7 +23,11 @@ public class AutomatedTester {
 			assert result.getResultCode() == OPERATION_COMPLETED;
 			assert result.getFlashcardFront().equals(flashcardFront[count]);
 			assert result.getFlashcardBack().equals(flashcardBack[count]);
-			assert result.getFlashcardHint().equals(flashcardHint[count]);
+			if (flashcardHint[count] == null) {
+				assert result.getFlashcardHint().equals("No hint set");
+			} else {
+				assert result.getFlashcardHint().equals(flashcardHint[count]);				
+			}
 		}
 	}
 	
@@ -35,7 +39,11 @@ public class AutomatedTester {
 			Result result = Dictionary.getInstance().addVocabulary(Request.getInstance());
 			assert result.getResultCode() == OPERATION_COMPLETED;
 			assert result.getVocabularyWord().equals(vocabularyWord[count]);
-			assert result.getVocabularyAbbreviation().equals(vocabularyAbbreviation[count]);
+			if (vocabularyAbbreviation[count] == null) {
+				assert result.getVocabularyAbbreviation().isBlank();
+			} else {
+				assert result.getVocabularyAbbreviation().equals(vocabularyAbbreviation[count]);				
+			}
 			assert result.getVocabularyDefinition().equals(vocabularyDefinition[count]);
 		}		
 	}
@@ -50,8 +58,15 @@ public class AutomatedTester {
 	public void testSearchVocabulary() {
 		Request.getInstance().setVocabularyTerm("term1");
 		assert Dictionary.getInstance().searchVocabulary(Request.getInstance()).getVocabularyAbbreviation().equals("abbrev1");
-		Request.getInstance().setVocabularyAbbreviation("abbrev2");
+		Request.getInstance().setVocabularyTerm("abbrev2");
 		assert Dictionary.getInstance().searchVocabulary(Request.getInstance()).getVocabularyWord().equals("term2");
+	}
+	
+	public void testDictionarySingleton() {
+		Dictionary instanceOne = Dictionary.getInstance();
+		Dictionary.save();
+		Dictionary instanceTwo = Dictionary.loadDictionary();
+		assert (instanceOne.hashCode() == instanceTwo.hashCode()) : "Dictionary singleton assertion failed.";
 	}
 	
 	public void testAll() {
@@ -59,6 +74,7 @@ public class AutomatedTester {
 		testAddVocabulary();
 		testSearchFlashcard();
 		testSearchVocabulary();
+		testDictionarySingleton();
 	}
 	
 	public static void main(String[] args) {

@@ -26,8 +26,11 @@ public class VocabularyList implements Iterable<Vocabulary>, Serializable {
 	public Vocabulary search(String term) {
 		for (Iterator<Vocabulary> iterator = vocabularyList.iterator(); iterator.hasNext();) {
 			Vocabulary vocabulary = iterator.next();
-			if (vocabulary.getWord().equalsIgnoreCase(term) || vocabulary.getAbbreviation().equalsIgnoreCase(term)) {
+			if (vocabulary.getWord().equalsIgnoreCase(term)) {
 				return vocabulary;
+			}
+			if (vocabulary.getAbbreviation() != null && vocabulary.getAbbreviation().equalsIgnoreCase(term)) {
+				return vocabulary;				
 			}
 		}
 		// TODO VocabularyDoesNotExistError
